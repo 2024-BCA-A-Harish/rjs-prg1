@@ -4,15 +4,33 @@
  * @returns {boolean} True if prime, false otherwise.
  */
 const isPrime = (num) => {
-    // TODO: 1. Handle edge cases (numbers <= 1) using const rules where applicable
-    
-    // TODO: 2. Handle the number 2 and even numbers
-    
-    // TODO: 3. Use a loop to check for factors up to the square root of num
-    // Hint: Use 'const' for values that stay the same and 'let' for values that change
-    
-    return false; // Change this return statement
+
+    // Check if the number is less than or equal to 1
+    // Numbers less than or equal to 1 are not prime
+    if (num <= 1) {
+        return false;
+    }
+
+    // Check for factors from 2 up to num - 1
+    for (let i = 2; i < num; i++) {
+
+        // If the number is divisible by i, it is not prime
+        if (num % i === 0) {
+            return false;
+        }
+    }
+
+    // If no factors are found, the number is prime
+    return true;
 };
 
-// Export the function for the test cases
+// Store the number to be checked
+let number = 17;
+
+// Check whether the number is prime and display the result
+if (isPrime(number)) {
+    console.log(number + " is a prime number");
+} else {
+    console.log(number + " is not a prime number");
+}
 module.exports = isPrime;
